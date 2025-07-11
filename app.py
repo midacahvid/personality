@@ -2,13 +2,18 @@ import pickle
 import streamlit as st
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
 
 
 
 with open('model.pkl', 'rb') as file:
     model =  pickle.load(file)
 
-
+# with open('model.pkl', 'rb') as file:
+#     loaded_model = pickle.load(file)
 
 st.set_page_config(page_title="Personality Predictor", layout="centered")
 st.title("🧠 Extrovert vs. Introvert Personality Predictor")

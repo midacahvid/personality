@@ -3,14 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-
-
-
 with open('model.pkl', 'rb') as file:
-    model =  pickle.load(file)
-
-# with open('model.pkl', 'rb') as file:
-#     loaded_model = pickle.load(file)
+    model = pickle.load(file)
 
 st.set_page_config(page_title="Personality Predictor", layout="centered")
 st.title("🧠 Extrovert vs. Introvert Personality Predictor")
@@ -32,17 +26,17 @@ This model is built on a dataset of 18524 individuals analyzing behavioral and s
 """)
 
 # -------------------------------
-# Sidebar Input
+# Main Area Input (was Sidebar)
 # -------------------------------
-st.sidebar.header("Input Your Behavior Data")
+st.header("Input Your Behavior Data")
 
-time_alone = st.sidebar.slider("Time spent alone daily (hours)", 0, 11, 3)
-stage_fear = st.sidebar.selectbox("Do you have stage fear?", ['Yes', 'No'])
-social_events = st.sidebar.slider("Social event attendance (0–10)", 0, 10, 5)
-going_out = st.sidebar.slider("Going outside frequency (0–7)", 0, 7, 4)
-drained = st.sidebar.selectbox("Do you feel drained after socializing?", ['Yes', 'No'])
-friends = st.sidebar.slider("Number of close friends (0–15)", 0, 15, 7)
-posts = st.sidebar.slider("Social media post frequency (0–10)", 0, 10, 4)
+time_alone = st.slider("Time spent alone daily (hours)", 0, 11, 3)
+stage_fear = st.selectbox("Do you have stage fear?", ['Yes', 'No'])
+social_events = st.slider("Social event attendance (0–10)", 0, 10, 5)
+going_out = st.slider("Going outside frequency (0–7)", 0, 7, 4)
+drained = st.selectbox("Do you feel drained after socializing?", ['Yes', 'No'])
+friends = st.slider("Number of close friends (0–15)", 0, 15, 7)
+posts = st.slider("Social media post frequency (0–10)", 0, 10, 4)
 
 # -------------------------------
 # Data Preparation
